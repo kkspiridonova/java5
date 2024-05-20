@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -15,9 +17,10 @@ public class Main {
         System.out.println("3. Очистить место");
         System.out.println("4. Похороны");
 
-
+        Logger logger = Logger.getLogger(Main.class.getName());
         Scanner in = new Scanner(System.in);
         int opt = in.nextInt();
+        logger.log(Level.INFO, "Выбрана опция:" + opt);
         if(opt ==1){
             Employee employee = new Employee();
         }
@@ -43,6 +46,7 @@ public class Main {
     }
 }
 class PlaceSelection {
+    private Logger logger = Logger.getLogger(PlaceSelection.class.getName());
     private int[][] bron_place;
 
     public PlaceSelection(int[][] bron_place) {
@@ -57,8 +61,10 @@ class PlaceSelection {
         while (a == 1) {
             System.out.println("Введите номер ряда:");
             vvod_raw = in.nextInt();
+            logger.log(Level.INFO, "Ряд:" + vvod_raw);
             System.out.println("Введите номер колонны:");
             vvod_column = in.nextInt();
+            logger.log(Level.INFO, "Колонна:" + vvod_column);
 
             if (bron_place[vvod_raw][vvod_column] == 0) {
                 bron_place[vvod_raw][vvod_column] = 1;
@@ -78,8 +84,10 @@ class PlaceSelection {
         while (a == 1) {
             System.out.println("Введите номер ряда:");
             vvod_raw = in.nextInt();
+            logger.log(Level.INFO, "Ряд:" + vvod_raw);
             System.out.println("Введите номер колонны:");
             vvod_column = in.nextInt();
+            logger.log(Level.INFO, "Колонна:" + vvod_column);
 
             if (bron_place[vvod_raw][vvod_column] == 0) {
                 bron_place[vvod_raw][vvod_column] = 0;
